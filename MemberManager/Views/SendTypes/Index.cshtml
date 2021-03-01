@@ -15,8 +15,34 @@
 
         delBtn.click(function () {
 
-            //var parentTr = $(this).parents("tr");
-            //parentTr.attr("display","none");
+            var tr = $(this).parents("tr");
+
+            var id = tr.find("input[name='id']").val();
+
+            if (confirm("是否刪除")){
+
+                  $.ajax({
+                    dataType: 'json',
+                    type: 'POST',
+                    url: '@Url.Action("Removed", "SendTypes")',
+                    data: {
+                        id: id
+                    },
+                    success: function (result) {
+
+                        //儲存成功
+                        if (result.success) {
+
+                            //alert(result.message);
+
+                            tr.hide();
+
+                        } else {
+                            alert(result.message);
+                        }
+                    }
+                });
+            }
         });
 
         searchButton.click(function () {
@@ -47,7 +73,7 @@
 </script>
 
 <div class="text-center">
-    <form name="searchForm" method="post" action="@Url.Action("Index","ProductTypes")" class="form-horizontal form-label-left">
+    <form name="searchForm" method="post" action="@Url.Action("Index","SendTypes")" class="form-horizontal form-label-left">
         <div>
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -88,7 +114,7 @@
                             <table class="table table-striped jambo_table bulk_action" name="productsTable" style="border:3px #cccccc solid;" cellpadding="10" border='1'>
                                 <thead>
                                     <tr>
-                                        <td style="font-weight:bold;color:saddlebrown;width:70%;">產品類別</td>
+                                        <td style="font-weight:bold;color:saddlebrown;width:70%;">發貨類別</td>
                                         <td style="font-weight:bold;color:saddlebrown;width:15%;">排序</td>
                                         <td style="font-weight:bold;color:saddlebrown;width:15%;">功能</td>
                                     </tr>
@@ -97,14 +123,15 @@
                                     @{
                                         if (Model != null && Model.Count > 0)
                                         {
-                                            foreach (SendTypes productTypes in Model)
+                                            foreach (SendTypes sendTypes in Model)
                                             {
                                                 <tr>
-                                                    <td>@productTypes.name</td>
-                                                    <td>@productTypes.sort</td>
+                                                    <td>@sendTypes.name</td>
+                                                    <td>@sendTypes.sort</td>
                                                     <th class="bulk-actions">
-                                                        <a href="@Url.Action("Edit", "SendTypes" , new { id = productTypes.id })" class="btn btn-primary editBtn">編輯</a>
-                                                        <a href="@Url.Action("Removed", "SendTypes" , new { id = productTypes.id })" class="btn btn-danger delBtn">刪除</a>
+                                                        <input type="hidden" name="id" value="@sendTypes.id" />
+                                                        <a href="@Url.Action("Edit", "SendTypes" , new { id = sendTypes.id })" class="btn btn-primary editBtn">編輯</a>
+                                                        <a href="#" class="btn btn-danger delBtn">刪除</a>
                                                     </th>
                                                 </tr>
                                             }

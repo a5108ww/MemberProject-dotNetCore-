@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\a5108\\Desktop\\git專案\\gitMemberProject(dotNetCore)\\MemberManager\\MemberManager.csproj": {}
+    "C:\\Users\\a5108\\Desktop\\git專案\\gitMemberManager\\MemberManager\\MemberManager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\a5108\\Desktop\\git專案\\gitMemberProject(dotNetCore)\\MemberManager\\MemberManager.csproj": {
+    "C:\\Users\\a5108\\Desktop\\git專案\\gitMemberManager\\MemberManager\\MemberManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\a5108\\Desktop\\git專案\\gitMemberProject(dotNetCore)\\MemberManager\\MemberManager.csproj",
+        "projectUniqueName": "C:\\Users\\a5108\\Desktop\\git專案\\gitMemberManager\\MemberManager\\MemberManager.csproj",
         "projectName": "MemberManager",
-        "projectPath": "C:\\Users\\a5108\\Desktop\\git專案\\gitMemberProject(dotNetCore)\\MemberManager\\MemberManager.csproj",
+        "projectPath": "C:\\Users\\a5108\\Desktop\\git專案\\gitMemberManager\\MemberManager\\MemberManager.csproj",
         "packagesPath": "C:\\Users\\a5108\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\a5108\\Desktop\\git專案\\gitMemberProject(dotNetCore)\\MemberManager\\obj\\",
+        "outputPath": "C:\\Users\\a5108\\Desktop\\git專案\\gitMemberManager\\MemberManager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\a5108\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,7 +40,11 @@
           "dependencies": {
             "Microsoft.AspNetCore.Http.Extensions": {
               "target": "Package",
-              "version": "[2.0.0, )"
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
+              "target": "Package",
+              "version": "[3.1.4, )"
             },
             "Microsoft.AspNetCore.Session": {
               "target": "Package",
@@ -53,6 +57,14 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.6, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "X.PagedList.Mvc.Core": {
+              "target": "Package",
+              "version": "[8.0.7, )"
             }
           },
           "imports": [

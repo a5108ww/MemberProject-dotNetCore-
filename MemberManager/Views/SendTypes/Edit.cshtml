@@ -1,1 +1,73 @@
-﻿
+﻿@using MemberManager.Models.DbModels;
+
+@model SendTypes
+
+<script type="text/javascript">
+
+    $(function () {
+
+        var thisForm = $("form[name='thisForm']");
+
+        thisForm
+            .on("click", ".saveButton", function () {
+
+            $.ajax({
+                dataType: 'json',
+                //contentType: 'application/json; charset=utf-8',
+                type: 'POST',
+                url: '@Url.Action("Save", "SendTypes")',
+                data: JSON.stringify({
+                    products: FormDataSerializeJsonString(thisForm)
+                }),
+                success: function (result) {
+
+                    if (result.success) {
+
+                        alert(result.message);
+                        //儲存成功
+                        self.location = document.referrer;
+
+                    } else {
+                        //儲存失敗
+                        alert(result.message);
+                    }
+                }});
+            });
+    });
+
+</script>
+
+
+<div class="text-center">
+    <div>
+        <form name="thisForm">
+            <h1>發貨類別</h1>
+
+            <div>
+                @*<input type="hidden" name="temp1" value="temp1" />*@
+
+                <input type="hidden" name="sendTypes.id" value="@Model.id" />
+                <input type="hidden" name="sendTypes.removed" value="@Model.removed" />
+                <div class="form-group row">
+                    <label class="col-md-5 col-sm-5 col-xs-6" style="text-align:right">名稱</label>
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <input type="text" name="sendTypes.name" class="form-control col-md-8 col-xs-12" value="@Model.name" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-5 col-sm-5 col-xs-6" style="text-align:right">排序</label>
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <input type="text" name="sendTypes.sort" class="form-control col-md-8 col-xs-12" value="@Model.sort" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-12 col-sm-12 col-xs-12"></label>
+            </div>
+            <div class="row">
+                <button type="button" name="saveButton" class="btn btn-primary saveButton">儲存</button>
+                <a href="@Url.Action("Index", "SendTypes")" class="btn btn-info previousPage" name="previousPage">回上一頁</a>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,1 +1,5 @@
 MemberManager/obj/
+MemberManager/bin/
+.vs/MemberManager/config/applicationhost.config
+.vs/MemberManager/DesignTimeBuild/.dtbcache.v2
+.vs/MemberManager/v16/.suo

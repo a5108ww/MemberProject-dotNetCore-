@@ -50,11 +50,9 @@ namespace MemberManager.Controllers
 
         public IActionResult Edit(Int64 id = 0)
         {
-            ProductTypes productTypes = null;
+            ProductTypes productTypes = new ProductTypes();
             if (id > 0)
                 productTypes = productTypesManager.GetById(Convert.ToInt64(id));
-            else
-                productTypes = new ProductTypes();
 
             return View(productTypes);
         }

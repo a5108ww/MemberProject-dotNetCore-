@@ -52,6 +52,7 @@ removed bit not null
 
 insert into sysFunctions values(0,'產品','Products','Index',1,0)
 insert into sysFunctions values(0,'產品類型','ProductTypes','Index',1,0)
+insert into sysFunctions values(0,'發貨類型','SendTypes','Index',1,0)
 
 Create Table sysRolesFunctions (
 id Bigint identity(1,1) Primary key not null,
@@ -62,10 +63,13 @@ removed bit not null
 
 insert into sysRolesFunctions values(1,1,0)
 insert into sysRolesFunctions values(1,2,0)
+insert into sysRolesFunctions values(1,3,0)
 insert into sysRolesFunctions values(2,1,0)
 insert into sysRolesFunctions values(2,2,0)
+insert into sysRolesFunctions values(2,3,0)
 insert into sysRolesFunctions values(3,1,0)
 insert into sysRolesFunctions values(3,2,0)
+insert into sysRolesFunctions values(3,3,0)
 
 Create Table [orders](
 id Bigint identity(1,1) Primary key not null,
